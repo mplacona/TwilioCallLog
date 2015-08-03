@@ -1,0 +1,50 @@
+@model IEnumerable<Twilio.Call>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="row">
+    @using(Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <div>
+            <label for="phoneNumber">Enter a phone number:</label>
+            @Html.TextBox("phoneNumber", null, new {@class ="form-control"})
+            <button type="submit">Search</button>
+        </div>    
+    }
+    
+    <br><br>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.To)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCreated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duration)
+            </th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.To)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.From)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)s
+            </td>
+        </tr>
+    }
+    </table>
+</div>
