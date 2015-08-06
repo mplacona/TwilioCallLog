@@ -11,7 +11,7 @@ namespace TwilioCallLogMVC.Controllers
     {
         public IActionResult Index(string phoneNumber)
         {
-            // Instanciate a new Twilio Rest Client
+            // Instantiate a new Twilio Rest Client
             var client = new TwilioRestClient("your-twilio-account-sid", "your-twilio-auth-token");
             
             // Select all calls from my account based on a phoneNumber

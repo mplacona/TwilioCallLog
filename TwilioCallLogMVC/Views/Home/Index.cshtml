@@ -6,11 +6,11 @@
 <div class="row">
     @using(Html.BeginForm("Index", "Home", FormMethod.Post))
     {
-        <div>
-            <label for="phoneNumber">Enter a phone number:</label>
+        <div class="form-group">
+            <label for="phoneNumber">Enter a 'To' phone number:</label>
             @Html.TextBox("phoneNumber", null, new {@class ="form-control"})
-            <button type="submit">Search</button>
         </div>    
+        <button type="submit" class="btn btn-primary">Search</button>
     }
     
     <br><br>

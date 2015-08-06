@@ -10,7 +10,7 @@ namespace TwilioCallLogConsole
     {
         public void Main(string[] args)
         {
-            // Instanciate a new Twilio Rest Client
+            // Instantiate a new Twilio Rest Client
             var client = new TwilioRestClient("your-twilio-account-sid", "your-twilio-auth-token");
             
             // Select all calls from my account
