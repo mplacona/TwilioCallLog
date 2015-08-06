@@ -15,9 +15,15 @@ namespace TwilioCallLogMVC.Controllers
             var client = new TwilioRestClient("your-twilio-account-sid", "your-twilio-auth-token");
             
             // Select all calls from my account based on a phoneNumber
-            var calls = client.ListCalls(new CallListRequest(){To = phoneNumber}).Calls;
+            var calls = client.ListCalls(new CallListRequest(){To = phoneNumber});
+            
+            // Check for any exceptions
+            if (calls.RestException != null)
+            {
+                throw new FormatException(calls.RestException.Message);
+            }
 
-            return View(calls);
+            return View(calls.Calls);
         }
 
         public IActionResult About()
